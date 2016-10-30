@@ -1,0 +1,7 @@
+--harmony
+--es_staging
+--check-leaks
+--reporer spec
+--inline-diffs
+--growl
+--require mocha.conf.js
