@@ -6,9 +6,9 @@ const hello = require('../toys/hello.js');
 
 describe('hello', function() {
   it('true is truify', function() {
-    expect(true).to.equal(false);
+    expect(true).to.equal(true);
   });
   it('hello return true by default', function() {
-    expect(hello()).to.equal(false);
+    expect(hello()).to.equal(true);
   });
 });
