@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start ./karma.conf.js",
-    "test_jasmine": "node jasmine.test.js || true",
-    "test_mocha": "mocha spec --opts mocha.cmdopts || true",
+    "test_jasmine": "node jasmine.test.js",
+    "test_mocha": "mocha spec --opts mocha.cmdopts",
     "test_karma": "karma start ./karma.conf.js --browsers PhantomJS"
   },
   "keywords": [],
