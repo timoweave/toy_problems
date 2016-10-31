@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-  let invalid = ((nums === undefined) || (nums === null) ||
+  var invalid = ((nums === undefined) || (nums === null) ||
                  (!Array.isArray(nums)) || (nums.length <= 1));
   if (invalid) {
     return false;
@@ -27,4 +27,6 @@ var containsDuplicate = function(nums) {
   }
 };
 
-module.exports = containsDuplicate;
+if (typeof module === 'object') {
+  module.exports = containsDuplicate;
+}

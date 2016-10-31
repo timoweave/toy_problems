@@ -7,4 +7,6 @@ var canWinNim = function(n) {
   return true;
 };
 
-module.exports = canWinNim;
+if (typeof module === 'object') {
+  module.exports = canWinNim;
+}

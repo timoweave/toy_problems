@@ -1,8 +1,10 @@
 'use strict';
 
-const chai = require('chai');
-const expect = chai.expect;
-const canWinNim = require('../toys/nim_game.js');
+if (typeof module === 'object') {
+  var chai = require('chai');
+  var expect = chai.expect;
+  var canWinNim = require('../toys/nim_game.js');
+}
 
 /*
  * You are playing the following Nim Game with your friend:
@@ -77,9 +79,9 @@ describe('nim game', function() {
   });
 
   function test_it(stone_count, expected_answer) {
-    const title = '' + stone_count + ' stone(s)';
+    var title = '' + stone_count + ' stone(s)';
     it(title, function() {
-      const output = canWinNim(stone_count);
+      var output = canWinNim(stone_count);
       expect(output).to.equal(expected_answer);
     });
   }
