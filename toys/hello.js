@@ -3,4 +3,6 @@ function hello(arg) {
   return arg || true;
 }
 
-module.exports = hello;
+if (typeof module === 'object') {
+  module.exports = hello;
+}

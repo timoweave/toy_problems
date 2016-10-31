@@ -4,8 +4,8 @@ module.exports = function(config) {
     // https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
     files: [
-      // 'node_modules/mocha/mocha.js',
-      // 'node_modules/chai/chai.js',
+      'node_modules/mocha/mocha.js',
+      'node_modules/chai/chai.js',
       'node_modules/expect.js/index.js',
       'toys/**/*.js',
       'spec/**/*.spec.js'

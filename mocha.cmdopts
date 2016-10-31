@@ -1,7 +1,9 @@
 --harmony
 --es_staging
 --check-leaks
---reporer spec
 --inline-diffs
+--watch
 --growl
 --require mocha.conf.js
+--reporter mochawesome
+--reporter-options reportDir=.,reportName=reports,reportTitle=toys-problems,inlineAssets=true
