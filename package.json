@@ -11,7 +11,8 @@
     "test_phantom": "karma start ./karma.conf.js --browsers PhantomJS",
     "test_jasmine_html": "node jasmine.test.js",
     "start_live_reports": "live-server --open=./reports.html --watch=./reports.html",
-    "test_mocha_live" : "npm-run-all -p test_mocha start_live_reports"
+    "test_mocha_live" : "npm-run-all -p test_mocha start_live_reports",
+    "clean_backups" : "find . -name '*~' -exec \rm -rf {} \\;"
   },
   "keywords": [],
   "author": "",
