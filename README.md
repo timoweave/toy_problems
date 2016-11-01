@@ -5,6 +5,8 @@ Here is a list of toy problems implemented and tested with mocha,
 jasmine, karma, and phantom. The regression result is also available
 to view on browser (thanks to `mochawesome` npm package)
 
+Here is a list of toy problems completed
+
 1. nim game 
 1. contains duplicates 
 1. add link number
@@ -13,9 +15,11 @@ to view on browser (thanks to `mochawesome` npm package)
 1. find the max depth of a binary tree
 1. move zeros in an array to its end, in place
 
-Here is a list toy problems need more explaination from the author(s).
+Here is a list toy problems yet to be done or need more explaination from the author(s).
 
 1. the power of 4 with a given number (could leetcode explain more?)
+1. combine two sql tables
+
 
 # Install and checkout the result
 ---
