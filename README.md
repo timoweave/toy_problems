@@ -5,6 +5,7 @@ Here is list of toy problems with mocha, jasmine, karma, and phantom
 
 1. nim game 
 1. contains duplicates 
+1. sum two integer without math operator '+'
 
 # Install and checkout the result
 ---
