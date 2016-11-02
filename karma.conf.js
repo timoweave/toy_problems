@@ -22,7 +22,7 @@ module.exports = function(config) {
     colors: true,
     // config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || 
     // config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.INFO_ERROR,
     autoWatch: true,
     // https://npmjs.org/browse/keyword/karma-launcher 
     // 'Chrome', 'Safari'

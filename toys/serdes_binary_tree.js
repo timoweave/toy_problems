@@ -67,5 +67,9 @@ function TreeNode(val) {
 }
 
 if (typeof module === 'object') {
-  module.exports = { serialize : serialize, deserialize : deserialize, TreeNode : TreeNode };
+  module.exports = {
+    serialize : serialize,
+    deserialize : deserialize,
+    TreeNode : TreeNode
+  };
 }
