@@ -41,8 +41,6 @@ function ListNode(val) {
   this.next = null;
 }
 
-(() => {
-  if (typeof module === 'object') {
-    module.exports = addTwoNumbers;
-  }
-})();
+if (typeof module === 'object') {
+  module.exports = addTwoNumbers;
+}
