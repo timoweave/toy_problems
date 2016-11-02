@@ -1,7 +1,7 @@
 # Toy Problems
 ---
 
-Here is list of toy problems implemented and tested with mocha,
+Here is a list of toy problems implemented and tested with mocha,
 jasmine, karma, and phantom. The regression result is also available
 to view on browser (thanks to `mochawesome` npm package)
 
@@ -11,6 +11,10 @@ to view on browser (thanks to `mochawesome` npm package)
 1. sum two integer without math operator '+', two's complement
 1. serialize/deserialize binary tree
 1. find the max depth of a binary tree
+
+Here is a list toy problems need more explaination from the author(s).
+
+1. the power of 4 with a given number (could leetcode explain more?)
 
 # Install and checkout the result
 ---
