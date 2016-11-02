@@ -11,6 +11,7 @@ to view on browser (thanks to `mochawesome` npm package)
 1. sum two integer without math operator '+', two's complement
 1. serialize/deserialize binary tree
 1. find the max depth of a binary tree
+1. move zeros in an array to its end, in place
 
 Here is a list toy problems need more explaination from the author(s).
 
