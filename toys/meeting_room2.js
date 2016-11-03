@@ -11,42 +11,39 @@
  */
 
 var minMeetingRooms = function(intervals) {
-
-  if ((intervals === null) || (intervals === undefined) || (intervals.length === 0)) { return 0; }
-
-  const invalid = (intervals.filter((int_i) => (!(int_i instanceof Interval))).length) ? true : false;
-  if (invalid) { return 0; }
-
-  intervals.sort(sort_intervals);
   
-  const compatibles = [];
-  let ints = intervals.slice();
-  while (ints.length) {
-    let int_i = ints.shift();
-    let compatible = [int_i];
-    let start = int_i.start;
-    let end = int_i.end;
-    ints = ints.reduce((int_left, int_j) => {
-      const ok =  ((end < int_j.start) && (start < int_j.end));
-      if (ok)
-    }, []);
+  return main(intervals);
+  
+  function main(intervals) {
+    if (isInvalid(intervals)) {
+      return 0;
+    }
+    intervals.sort(sortIntervals);
+    const breakup_intervals = breakupIntervals(intervals);
+    return minRoom(breakup_intervals);
   }
-  intervals.forEach(function() {}, );
-  
-  return 0;
 
-  /*
-  const min_room = intervals.reduce((int_max, int_i, i) => {
-    if (!(int_i instanceof Interval)) { return false; }
-    var conflict_list = intervals.filter((int_j, j) => {
-      return ((int_i.end < int_j.start) && (int_i.start < int_j.end));
+  function breakupIntervals(intervals) {
+    const points = {};
+    intervals.forEach((interval) => {
+      points[interval.start] = true;
+      points[interval.end] = true;
     });
-    return Math.max(int_max, conflict_list.length);
-  }, 1);
+    const nums = Object.keys(points).map((i) => (parseInt(i)) ).sort((a, b) => (a - b));
+    const breakups = [];
+    intervals.forEach((interval) => {
+      const range = nums.filter((n) => { return ((interval.start <= n) && (n <= interval.end)); });
+      const first = range.shift();
+      range.reduce((start, end) => {
+        breakups.push(new Interval(start, end));
+        return end;
+      }, first);
+    });
 
-  return min_room;
-   */
-  function sort_intervals(a, b) {
+    return breakups;
+  }
+
+  function sortIntervals(a, b) {
     if (a.start === b.start) {
       return a.end - b.end;
     } else {
@@ -54,6 +51,27 @@ var minMeetingRooms = function(intervals) {
     }
   }
 
+  function minRoom(intervals) {
+    const min_room = intervals.reduce((int_max, int_i, i) => {
+      var conflict_list = intervals.filter((int_j, j) => {
+        const overlap = ((int_i.start < int_j.end) && (int_j.start < int_i.end));
+        return overlap;
+      });
+      return Math.max(int_max, conflict_list.length);
+    }, 1);
+    return min_room;
+  }
+
+  function isInvalid(intervals) {
+    if ((intervals === null) || (intervals === undefined) || (intervals.length === 0)) {
+      return true;
+    }
+    if (intervals.filter((int_i) => (!(int_i instanceof Interval))).length) {
+      return true;
+    }
+    return false;
+  }
+  
 };
 
 function Interval(start, end) {

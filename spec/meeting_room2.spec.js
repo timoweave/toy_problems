@@ -8,7 +8,7 @@ if (typeof module === 'object') {
   var Interval = meeting_room2.Interval;
 }
 
-describe('meeting room 2', function() {
+describe.only('meeting room 2', function() {
   it('undefined interval', function() {
     const intervals = undefined;
     const count = minMeetingRooms(intervals);
@@ -61,13 +61,13 @@ describe('meeting room 2', function() {
   it('[(0, 10), (5, 15)] interval, overlap', function() {
     const intervals = [ new Interval(5, 15), new Interval(0, 10) ];
     const count = minMeetingRooms(intervals);
-    expect(count).to.equal(1);
+    expect(count).to.equal(2);
   });
 
   it('[(0, 10), (5, 15), (10, 20)] interval, overlap', function() {
     const intervals = [ new Interval(5, 15), new Interval(10, 20), new Interval(0, 10) ];
     const count = minMeetingRooms(intervals);
-    expect(count).to.equal(1);
+    expect(count).to.equal(2);
   });
 
   it('[(0, 50), (5, 15), (10, 20), (7, 8), (50, 60)] interval, overlap', function() {
@@ -75,6 +75,6 @@ describe('meeting room 2', function() {
                         new Interval(7, 8), new Interval(50, 60)
                       ];
     const count = minMeetingRooms(intervals);
-    expect(count).to.equal(4);
+    expect(count).to.equal(3);
   });
 });
