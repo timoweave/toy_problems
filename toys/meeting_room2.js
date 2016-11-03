@@ -13,53 +13,10 @@
 var minMeetingRooms = function(intervals) {
   
   return main(intervals);
-  
+
   function main(intervals) {
-    if (isInvalid(intervals)) {
-      return 0;
-    }
-    intervals.sort(sortIntervals);
-    const breakup_intervals = breakupIntervals(intervals);
-    return minRoom(breakup_intervals);
-  }
-
-  function breakupIntervals(intervals) {
-    const points = {};
-    intervals.forEach((interval) => {
-      points[interval.start] = true;
-      points[interval.end] = true;
-    });
-    const nums = Object.keys(points).map((i) => (parseInt(i)) ).sort((a, b) => (a - b));
-    const breakups = [];
-    intervals.forEach((interval) => {
-      const range = nums.filter((n) => { return ((interval.start <= n) && (n <= interval.end)); });
-      const first = range.shift();
-      range.reduce((start, end) => {
-        breakups.push(new Interval(start, end));
-        return end;
-      }, first);
-    });
-
-    return breakups;
-  }
-
-  function sortIntervals(a, b) {
-    if (a.start === b.start) {
-      return a.end - b.end;
-    } else {
-      return a.start - b.start;
-    }
-  }
-
-  function minRoom(intervals) {
-    const min_room = intervals.reduce((int_max, int_i, i) => {
-      var conflict_list = intervals.filter((int_j, j) => {
-        const overlap = ((int_i.start < int_j.end) && (int_j.start < int_i.end));
-        return overlap;
-      });
-      return Math.max(int_max, conflict_list.length);
-    }, 1);
-    return min_room;
+    if (isInvalid(intervals)) { return 0; }
+    return findMinRoom(intervals);
   }
 
   function isInvalid(intervals) {
@@ -71,7 +28,22 @@ var minMeetingRooms = function(intervals) {
     }
     return false;
   }
-  
+
+  function findMinRoom(intervals) {
+    const points = {};
+    intervals.forEach((interval) => {
+      points[interval.start] = 0;
+      points[interval.end] = 0;
+    });
+    const nums = Object.keys(points).map((i) => (parseInt(i)) ).sort((a, b) => (a - b));
+    intervals.forEach((interval) => {
+      const range = nums.filter((n) => { return ((interval.start <= n) && (n < interval.end)); });
+      range.forEach((p) => { points[p]++; });
+    });
+    const minRooms = Object.keys(points).map((p) => (points[p]) ).reduce((ans, size) => (Math.max(ans, size)), 0);
+    return minRooms;
+  }
+
 };
 
 function Interval(start, end) {
