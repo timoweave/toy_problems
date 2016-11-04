@@ -6,7 +6,7 @@ if (typeof module === 'object') {
   var countBits = require('../toys/counting_bits.js');
 }
 
-describe.only('counting bits', function() {
+describe('counting bits', function() {
   it('0', function() {
     const output = countBits(0);
     const expected = [0];
