@@ -5,6 +5,7 @@ Here is a list of toy problems implemented and tested with mocha,
 jasmine, karma, and phantom. The regression result is also available
 to view on browser (thanks to `mochawesome` npm package)
 
+1. zig zag conversion (encode/decode)
 1. find the amount of water trap between buildings
 1. find duplicates in a 1 <= ... <= n array.
 1. counting binary bits of any given number.
