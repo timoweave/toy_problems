@@ -6,7 +6,7 @@ if (typeof module === 'object') {
   var trap = require('../toys/rain_water.js');
 }
 
-describe.only('trap water', function() {
+describe('trap water', function() {
   it('[0,1,0,2,1,0,1,3,2,1,2,1] is 6', function() {
     const input = [0,1,0,2,1,0,1,3,2,1,2,1];
     const expected = 6;
