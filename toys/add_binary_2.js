@@ -9,23 +9,20 @@ var addBinary = function(a, b) {
 
   const r_list = [];
   let c_i = 0; // carry
-  while (a_list.length || b_list.length) {
-    const a_i = parseInt(a_list.pop() || 0);
-    const b_i = parseInt(b_list.pop() || 0);
+  while (a_list.length || b_list.length || c_i) {
+    const a_i = parseInt(a_list.pop() || '0');
+    const b_i = parseInt(b_list.pop() || '0');
     const s_i = a_i + b_i + c_i;
-    if (s_i > 2) {
+    if (s_i >= 2) {
       c_i = 1;
     } else {
       c_i = 0;
     }
-    if (s_i % 2 === 1) {
+    if ((s_i % 2) === 1) {
       r_list.unshift(1);
     } else {
       r_list.unshift(0);
     }
-  }
-  if (c_i) {
-    r_list.unshift(1);
   }
   return r_list.join('');
 };
